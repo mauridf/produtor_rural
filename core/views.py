@@ -1,5 +1,7 @@
 from django.views.generic import TemplateView
-
+from django.core.paginator import Paginator
+from django.db.models import Q
+from django.shortcuts import get_object_or_404, redirect, render
 from .models import ProdutorRural, TipoCultura, Fazenda, FazendaCulturaPlantada
 
 class IndexView(TemplateView):

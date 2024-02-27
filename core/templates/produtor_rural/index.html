@@ -1,0 +1,48 @@
+{% extends 'global/base.html' %}
+
+{% block content %}
+    {% if page_obj %}
+        <div class="responsive-table">
+            <table class="contacts-table">
+                <caption class="table-caption ">
+                  Produtores Rurais
+                </caption>
+
+                <thead>
+                  <tr class="table-row table-row-header">
+                    <th class="table-header">ID</th>
+                    <th class="table-header">Nome do Produtor Rural</th>
+                    <th class="table-header">CPF / CNPJ</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                    {% for produtor in page_obj %}
+                    <tr class="table-row">
+                        <td class="table-cel">
+                            <a
+                              class="table-link"
+                              href="{% url 'produtorRural:produtor' produtor.id %}"
+                            >
+                            {{ produtor.id }}
+                            </a>
+                        </td>
+                        <td class="table-cel">
+                            {{ produtor.nomeProdutorRural }}
+                        </td>
+                        <td class="table-cel">
+                            {{ produtor.cpfcnpj }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="single-produtor">
+          <h1 class="single-produtor-name">
+            Nenhum produtor rural encontrado.
+          </h1>
+        </div>
+    {% endif %}
+{% endblock content %}

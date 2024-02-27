@@ -1,7 +1,15 @@
 from django.urls import path
 
-from .views import IndexView
+from core import views
+
+app_name = 'produtorRural'
 
 urlpatterns = [
-    path('', IndexView.as_view(), name='index'),
+    path('', views.index, name='index'),
+    path('search/', views.search, name='search'),
+
+# produtorRural (CRUD)
+    path('produtor_rural/<int:produtor_id>/', views.produtor, name='produtor'),
+    path('produtor_rural/create/', views.create, name='create'),
+    path('produtor_rural/<int:produtor_id>/update/', views.update, name='update'),
 ]

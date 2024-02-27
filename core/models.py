@@ -82,5 +82,5 @@ class FazendaCulturaPlantada(Base):
         verbose_name = 'FazendaCulturaPlantada'
         verbose_name_plural = 'FazendasCulturasPlantadas'
 
-    def __str__(self):
-        return self.fazendaId
+    def __int__(self):
+        return self.fazenda
