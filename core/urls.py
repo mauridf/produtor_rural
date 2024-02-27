@@ -28,11 +28,19 @@ urlpatterns = [
     path('tipo_cultura/indexTipoCultura/', views.indexTipoCultura, name='indexTipoCultura'),
     path('searchTipoCultura/', views.searchTipoCultura, name='search'),
 
-# tipoCultura (CRUD)
-#    path('fazenda/<int:fazenda_id>/', views.fazenda, name='fazenda'),
-#    path('fazenda/createfazenda/', views.createFazenda, name='createFazenda'),
-#    path('fazenda/<int:fazenda_id>/update/', views.updateFazenda, name='updateFazenda'),
-#    path('fazenda/<int:fazenda_id>/delete/', views.deleteFazenda, name='deleteFazenda'),
-#    path('fazenda/indexfazenda/', views.indexFazenda, name='indexFazenda'),
-#    path('searchFazenda/', views.searchFazenda, name='search'),
+# fazenda (CRUD)
+    path('fazenda/<int:fazenda_id>/', views.fazenda, name='fazenda'),
+    path('fazenda/createfazenda/', views.createFazenda, name='createFazenda'),
+    path('fazenda/<int:fazenda_id>/update/', views.updateFazenda, name='updateFazenda'),
+    path('fazenda/<int:fazenda_id>/delete/', views.deleteFazenda, name='deleteFazenda'),
+    path('fazenda/indexFazenda/', views.indexFazenda, name='indexFazenda'),
+    path('searchFazenda/', views.searchFazenda, name='search'),
+
+# culturaPlantada (CRUD)
+    #path('cultura_plantada/<int:culturaPlantada_id>/', views.fazenda, name='culturaPlantada'),
+    #path('cultura_plantada/createCulturaPlantada/', views.createFazenda, name='createCulturaPlantada'),
+    #path('cultura_plantada/<int:culturaPlantada_id>/updateCulturaPlantada/', views.updateFazenda, name='updateCulturaPlantada'),
+    #path('cultura_plantada/<int:culturaPlantada_id>/deleteCulturaPlantada/', views.deleteFazenda, name='deleteCulturaPlantada'),
+    #path('cultura_plantada/indexFazenda/', views.indexFazenda, name='indexFazenda'),
+    #path('searchCulturaPlantada/', views.searchFazenda, name='search'),
 ]

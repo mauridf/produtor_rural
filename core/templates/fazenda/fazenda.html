@@ -1,0 +1,30 @@
+{% extends 'global/base.html' %}
+
+{% block content %}
+  <div class="single-contact">
+    <h1 class="single-contact-name">
+      {{ fazenda.nomeFazenda }}
+    </h1>
+
+    <p><b>ID:</b> {{ fazenda.id }}</p>
+    <p><b>Produtor Rural:</b> {{ fazenda.produtorRural }}</p>
+    <p><b>Nome da Fazenda:</b> {{ fazenda.nomeFazenda }}</p>
+    <p><b>Cidade/Estado:</b> {{ fazenda.cidade }}/{{ fazenda.estado }}</p>
+    <p><b>Área Total:</b> {{ fazenda.areaTotal }} Hectare (ha)</p>
+    <p><b>Área Agricultável:</b> {{ fazenda.areaAgricultavel }} Hectare (ha)</p>
+    <p><b>Área de Vegetação:</b> {{ fazenda.areaVegetacao }} Hectare (ha)</p>
+  </div>
+
+  <div class="contact-links">
+    <a class="btn btn-link" href="{% url 'produtorRural:updateFazenda' fazenda.id %}">Atualizar</a>
+    <form action="{% url 'produtorRural:deleteFazenda' fazenda.id %}" method="POST">
+    {% csrf_token %}
+    {% if confirmation == 'no' %}
+        <input type="hidden" name="confirmation" value="yes">
+        <button class="btn btn-link btn-delete" type="submit">Confirma?</button>
+    {% else %}
+        <button class="btn btn-link btn-delete" type="submit">Deletar</button>
+    </form>
+    {% endif %}
+  </div>
+{% endblock content %}

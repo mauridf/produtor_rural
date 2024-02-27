@@ -11,24 +11,31 @@
       {% if user.is_authenticated %}
       <!--PRODUTOR RURAL-->
         <li class="menu-item">
-          <a href="{% url 'produtorRural:index' %}" class="menu-link">Listar Produtores Rurais</a>
+          <a href="{% url 'produtorRural:index' %}" class="menu-link">Produtores Rurais</a>
         </li>
         <li class="menu-item">
           <a href="{% url 'produtorRural:create' %}" class="menu-link">Cadastrar Produtor Rural</a>
         </li>
       <!--TIPO DE CULTURA-->
         <li class="menu-item">
-          <a href="{% url 'produtorRural:indexTipoCultura' %}" class="menu-link">Listar Tipos de Cultura</a>
+          <a href="{% url 'produtorRural:indexTipoCultura' %}" class="menu-link">Culturas</a>
         </li>
         <li class="menu-item">
           <a href="{% url 'produtorRural:createTipoCultura' %}" class="menu-link">Cadastrar Tipo de Cultura</a>
         </li>
       <!--FAZENDA-->
         <li class="menu-item">
-          <a href="#" class="menu-link">Listar Fazendas</a>
+          <a href="{% url 'produtorRural:indexFazenda' %}" class="menu-link">Fazendas</a>
         </li>
         <li class="menu-item">
-          <a href="#" class="menu-link">Cadastrar Fazenda</a>
+          <a href="{% url 'produtorRural:createFazenda' %}" class="menu-link">Cadastrar Fazenda</a>
+        </li>
+      <!--CULTURA PLANTADA POR FAZENDA-->
+        <li class="menu-item">
+          <a href="#" class="menu-link">Culturas Plantadas por Fazenda</a>
+        </li>
+        <li class="menu-item">
+          <a href="#" class="menu-link">Cadastrar Culturas Plantadas por Fazenda</a>
         </li>
       <!--USUÁRIO-->
         <li class="menu-item">

@@ -74,6 +74,114 @@ class TipoCulturaForm(forms.ModelForm):
 
         return tipoCultura
 
+class FazendaForm(forms.ModelForm):
+    class Meta:
+        model = models.Fazenda
+        fields = (
+            'nomeFazenda','cidade','estado','areaTotal','areaAgricultavel','areaVegetacao','produtorRural',
+        )
+
+    @property
+    def clean(self):
+        cleaned_data = self.cleaned_data
+        nomeFazenda = cleaned_data.get('nomeFazenda')
+        cidade = cleaned_data.get('cidade')
+        estado = cleaned_data.get('estado')
+        areaTotal = cleaned_data.get('areaTotal')
+        areaAgricultavel = cleaned_data.get('areaAgricultavel')
+        areaVegetacao = cleaned_data.get('areaVegetacao')
+
+        if nomeFazenda == '':
+            msg = ValidationError(
+                'Nome da Fazenda não pode ficar em branco',
+                code='invalid'
+            )
+            self.add_error('nomeFazenda', msg)
+
+        if cidade == '':
+            msg = ValidationError(
+                'Nome da Cidade não pode ficar em branco',
+                code='invalid'
+            )
+            self.add_error('cidade', msg)
+
+        if estado == '':
+            msg = ValidationError(
+                'Nome do Estado não pode ficar em branco',
+                code='invalid'
+            )
+            self.add_error('estado', msg)
+
+        if areaTotal == '':
+            msg = ValidationError(
+                'É necessário entrar com algum valor de Área Total',
+                code='invalid'
+            )
+            self.add_error('areaTotal', msg)
+
+        if areaAgricultavel == '':
+            msg = ValidationError(
+                'É necessário entrar com algum valor de Área Agricultável',
+                code='invalid'
+            )
+            self.add_error('areaAgricultavel', msg)
+
+        if areaVegetacao == '':
+            msg = ValidationError(
+                'É necessário entrar com algum valor de Área de Vegetação',
+                code='invalid'
+            )
+            self.add_error('areaAgricultavel', msg)
+
+        if (areaAgricultavel + areaVegetacao) > areaTotal:
+            msg = ValidationError(
+                'A Área de uso do Solo (Área Agricultável + Área de Vegetação) não pode ser maior que a Área Total',
+                code='invalid'
+            )
+            self.add_error('areaTotal', msg)
+
+        return super().clean
+
+    def clean_nomeFazenda(self):
+        nomeFazenda = self.cleaned_data.get('nomeFazenda')
+
+        if nomeFazenda == 'ABC':
+            self.add_error(
+                'nomeFazenda',
+                ValidationError(
+                    'Nome da Fazenda está Inválido',
+                    code='invalid'
+                )
+            )
+
+        return nomeFazenda
+
+    def clean_cidade(self):
+        cidade = self.cleaned_data.get('cidade')
+
+        if cidade == 'ABC':
+            self.add_error(
+                'cidade',
+                ValidationError(
+                    'Nome da Cidade está Inválido',
+                    code='invalid'
+                )
+            )
+        return cidade
+
+    def clean_estado(self):
+        estado = self.cleaned_data.get('estado')
+
+        if estado == 'AB':
+            self.add_error(
+                'estado',
+                ValidationError(
+                    'O Estado está Inválido',
+                    code='invalid'
+                )
+            )
+        return estado
+
 class RegisterForm(UserCreationForm):
     first_name = forms.CharField(
         required=True,
