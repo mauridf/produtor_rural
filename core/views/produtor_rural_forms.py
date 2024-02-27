@@ -90,7 +90,7 @@ def delete(request, produtor_id):
 
     return render(
         request,
-        'produtor_rural/produtor.html',
+        'produtor_rural/produtor_rural.html',
         {
             'produtor': produtor,
             'confirmation': confirmation,

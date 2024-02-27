@@ -40,6 +40,40 @@ class ProdutorRuralForm(forms.ModelForm):
 
         return nomeProdutorRural
 
+class TipoCulturaForm(forms.ModelForm):
+    class Meta:
+        model = models.TipoCultura
+        fields = (
+            'tipoCultura',
+        )
+
+    def clean(self):
+        cleaned_data = self.cleaned_data
+        tipoCultura = cleaned_data.get('tipoCultura')
+
+        if tipoCultura == '':
+            msg = ValidationError(
+                'Nome do Tipo de Cultura não pode ficar em branco',
+                code='invalid'
+            )
+            self.add_error('tipoCultura', msg)
+
+        return super().clean()
+
+    def clean_tipoCultura(self):
+        tipoCultura = self.cleaned_data.get('tipoCultura')
+
+        if tipoCultura == 'ABC':
+            self.add_error(
+                'tipoCultura',
+                ValidationError(
+                    'Nome do Tipo de Cultura está Inválido',
+                    code='invalid'
+                )
+            )
+
+        return tipoCultura
+
 class RegisterForm(UserCreationForm):
     first_name = forms.CharField(
         required=True,

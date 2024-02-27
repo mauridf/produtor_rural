@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'global/base.html' %}
 
-</body>
-</html>
+{% block content %}
+  <div class="form-wrapper">
+
+    <h2>Login </h2>
+    
+    {% if user.is_authenticated %}
+      <p>
+        Você fez login como {{ user.username }}.
+        Clique <a href="{% url 'produtorRural:logout' %}">aqui</a>
+        para sair.
+      </p>
+    {% else %}
+      {% include 'produtor_rural/partials/_user-form.html' %}
+    {% endif %}
+  </div>
+{% endblock content %}

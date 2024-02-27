@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'global/base.html' %}
 
-</body>
-</html>
+{% block content %}
+  <div class="form-wrapper">
+
+    <h2>Atualizar Usuario</h2>
+    
+    {% include 'produtor_rural/partials/_user-form.html' %}
+  </div>
+{% endblock content %}

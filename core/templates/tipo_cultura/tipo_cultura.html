@@ -3,17 +3,16 @@
 {% block content %}
   <div class="single-contact">
     <h1 class="single-contact-name">
-      {{ produtor.nomeProdutorRural }}
+      {{ tipoCultura.tipoCultura }}
     </h1>
 
-    <p><b>ID:</b> {{ produtor.id }}</p>
-    <p><b>Nome do Produtor Rural:</b> {{ produtor.nomeProdutorRural }}</p>
-    <p><b>CPF/CNPJ:</b> {{ produtor.cpfcnpj }}</p>
+    <p><b>ID:</b> {{ tipoCultura.id }}</p>
+    <p><b>Tipo de Cultura:</b> {{ tipoCultura.tipoCultura }}</p>
   </div>
 
   <div class="contact-links">
-    <a class="btn btn-link" href="{% url 'produtorRural:update' produtor.id %}">Atualizar</a>
-    <form action="{% url 'produtorRural:delete' produtor.id %}" method="POST">
+    <a class="btn btn-link" href="{% url 'produtorRural:updateTipoCultura' tipoCultura.id %}">Atualizar</a>
+    <form action="{% url 'produtorRural:deleteTipoCultura' tipoCultura.id %}" method="POST">
     {% csrf_token %}
     {% if confirmation == 'no' %}
         <input type="hidden" name="confirmation" value="yes">
