@@ -37,10 +37,13 @@ urlpatterns = [
     path('searchFazenda/', views.searchFazenda, name='search'),
 
 # culturaPlantada (CRUD)
-    #path('cultura_plantada/<int:culturaPlantada_id>/', views.fazenda, name='culturaPlantada'),
-    #path('cultura_plantada/createCulturaPlantada/', views.createFazenda, name='createCulturaPlantada'),
-    #path('cultura_plantada/<int:culturaPlantada_id>/updateCulturaPlantada/', views.updateFazenda, name='updateCulturaPlantada'),
-    #path('cultura_plantada/<int:culturaPlantada_id>/deleteCulturaPlantada/', views.deleteFazenda, name='deleteCulturaPlantada'),
-    #path('cultura_plantada/indexFazenda/', views.indexFazenda, name='indexFazenda'),
-    #path('searchCulturaPlantada/', views.searchFazenda, name='search'),
+    path('cultura_plantada/<int:culturaPlantada_id>/', views.culturaPlantada, name='culturaPlantada'),
+    path('cultura_plantada/createCulturaPlantada/', views.createCulturaPlantada, name='createCulturaPlantada'),
+    path('cultura_plantada/<int:culturaPlantada_id>/updateCulturaPlantada/', views.updateCulturaPlantada, name='updateCulturaPlantada'),
+    path('cultura_plantada/<int:culturaPlantada_id>/deleteCulturaPlantada/', views.deleteCulturaPlantada, name='deleteCulturaPlantada'),
+    path('cultura_plantada/indexCulturaPlantada/', views.indexCulturaPlantada, name='indexCulturaPlantada'),
+    path('searchCulturaPlantada/', views.searchCulturaPlantada, name='search'),
+
+# dashboard
+    path('dashboard/', views.dashboard, name='dashboard'),
 ]

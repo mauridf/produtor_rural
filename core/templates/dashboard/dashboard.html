@@ -1,0 +1,133 @@
+{% extends 'global/base.html' %}
+{% load static %}
+{% block content %}
+    {% if page_obj %}
+        <div class="container-fluid">
+            <div class="row">
+                <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
+                    <!--CABEÇALHO-->
+                    <div class="title-group mb-3">
+                        <h1 class="h2 mb-0">Dashboard</h1>
+                        <small class="text-muted">Oi {{ user.username }}, bem vindo de volta!</small>
+                    </div>
+
+                    <div class="row my-4">
+                        <div class="col-lg-7 col-12">
+                            <!--QUANTIDADE TOTAL DE FAZENDAS-->
+                            <div class="custom-block custom-block-balance">
+                                <small>Total de Fazendas em Quantidade</small>
+                                <h2 class="mt-2 mb-3">0 Fazendas</h2>
+                            </div>
+                            <!--TOTAL DE FAZENDAS EM HECTARES-->
+                            <div class="custom-block custom-block-balance">
+                                <small>Total de Fazendas em Hectares</small>
+                                <h2 class="mt-2 mb-3">0 Hectares (ha)</h2>
+                            </div>
+                            <!--GRÁFICO POR ESTADO-->
+                            <div class="custom-block bg-white">
+                                <h5 class="mb-4">Por Estado</h5>
+                                <div id="pie-chart-estado"></div>
+                            </div>
+                            <!--GRÁFICO POR CULTURA-->
+                            <div class="custom-block bg-white">
+                                <h5 class="mb-4">Por Cultura</h5>
+                                <div id="pie-chart-cultura"></div>
+                            </div>
+                            <!--GRÁFICO POR USO DO SOLO-->
+                            <div class="custom-block bg-white">
+                                <h5 class="mb-4">Por Uso do Solo</h5>
+                                <div id="pie-chart-uso"></div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    {% else %}
+        <div class="single_dashboard">
+          <h1 class="single_dashboard">
+            Ainda não existem dados para que o Dashboard seja montado.
+          </h1>
+        </div>
+    {% endif %}
+    <!-- JAVASCRIPT FILES -->
+        <script src="{% static 'global/js/jquery.min.js' %}"></script>
+        <script src="{% static 'global/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'global/js/apexcharts.min.js' %}"></script>
+        <script src="{% static 'global/js/custom.js' %}"></script>
+
+        <script type="text/javascript">
+            var options = {
+              series: [13, 43, 22],
+              chart: {
+              width: 380,
+              type: 'pie',
+            },
+            labels: ['Balance', 'Expense', 'Credit Loan',],
+            responsive: [{
+              breakpoint: 480,
+              options: {
+                chart: {
+                  width: 200
+                },
+                legend: {
+                  position: 'bottom'
+                }
+              }
+            }]
+            };
+
+            var chartestado = new ApexCharts(document.querySelector("#pie-chart-estado"), options);
+            chartestado.render();
+        </script>
+
+        <script type="text/javascript">
+            var options = {
+              series: [13, 43, 22],
+              chart: {
+              width: 380,
+              type: 'pie',
+            },
+            labels: ['Balance', 'Expense', 'Credit Loan',],
+            responsive: [{
+              breakpoint: 480,
+              options: {
+                chart: {
+                  width: 200
+                },
+                legend: {
+                  position: 'bottom'
+                }
+              }
+            }]
+            };
+
+            var chartcultura = new ApexCharts(document.querySelector("#pie-chart-cultura"), options);
+            chartcultura.render();
+        </script>
+
+        <script type="text/javascript">
+            var options = {
+              series: [13, 43, 22],
+              chart: {
+              width: 380,
+              type: 'pie',
+            },
+            labels: ['Balance', 'Expense', 'Credit Loan',],
+            responsive: [{
+              breakpoint: 480,
+              options: {
+                chart: {
+                  width: 200
+                },
+                legend: {
+                  position: 'bottom'
+                }
+              }
+            }]
+            };
+
+            var chartuso = new ApexCharts(document.querySelector("#pie-chart-uso"), options);
+            chartuso.render();
+        </script>
+{% endblock content %}

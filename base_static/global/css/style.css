@@ -176,6 +176,66 @@ svg {
   margin: 1rem 0;
 }
 
+@media (min-width: 600px) {
+  .single_tipoCultura {
+    max-width: 80%;
+    margin: calc(var(--spacing) * 2) auto;
+  }
+}
+
+.single_tipoCultura h1 {
+  margin: 1rem 0;
+}
+
+.single_tipoCultura p {
+  margin: 1rem 0;
+}
+
+@media (min-width: 600px) {
+  .single_fazenda {
+    max-width: 80%;
+    margin: calc(var(--spacing) * 2) auto;
+  }
+}
+
+.single_fazenda h1 {
+  margin: 1rem 0;
+}
+
+.single_fazenda p {
+  margin: 1rem 0;
+}
+
+@media (min-width: 600px) {
+  .single_culturaPlantada {
+    max-width: 80%;
+    margin: calc(var(--spacing) * 2) auto;
+  }
+}
+
+.single_culturaPlantada h1 {
+  margin: 1rem 0;
+}
+
+.single_culturaPlantada p {
+  margin: 1rem 0;
+}
+
+@media (min-width: 600px) {
+  .single_dashboard {
+    max-width: 80%;
+    margin: calc(var(--spacing) * 2) auto;
+  }
+}
+
+.single_dashboard h1 {
+  margin: 1rem 0;
+}
+
+.single_dashboard p {
+  margin: 1rem 0;
+}
+
 .pagination {
   margin-top: var(--spacing);
   display: flex;

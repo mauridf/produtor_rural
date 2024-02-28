@@ -32,10 +32,14 @@
         </li>
       <!--CULTURA PLANTADA POR FAZENDA-->
         <li class="menu-item">
-          <a href="#" class="menu-link">Culturas Plantadas por Fazenda</a>
+          <a href="{% url 'produtorRural:indexCulturaPlantada' %}" class="menu-link">Culturas Plantadas por Fazenda</a>
         </li>
         <li class="menu-item">
-          <a href="#" class="menu-link">Cadastrar Culturas Plantadas por Fazenda</a>
+          <a href="{% url 'produtorRural:createCulturaPlantada' %}" class="menu-link">Cadastrar Culturas Plantadas por Fazenda</a>
+        </li>
+      <!--DASHBOARD-->
+        <li class="menu-item">
+          <a href="{% url 'produtorRural:dashboard' %}" class="menu-link">DashBoard</a>
         </li>
       <!--USUÁRIO-->
         <li class="menu-item">

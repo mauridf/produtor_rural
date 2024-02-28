@@ -1,0 +1,26 @@
+{% extends 'global/base.html' %}
+
+{% block content %}
+  <div class="single-contact">
+    <h1 class="single-contact-name">
+      {{ culturaPlantada.fazenda }} - {{ culturaPlantada.tipoCultura }}
+    </h1>
+
+    <p><b>ID:</b> {{ culturaPlantada.id }}</p>
+    <p><b>Fazenda:</b> {{ culturaPlantada.fazenda }}</p>
+    <p><b>Tipo de Cultura:</b> {{ culturaPlantada.tipoCultura }}</p>
+  </div>
+
+  <div class="contact-links">
+    <a class="btn btn-link" href="{% url 'produtorRural:updateCulturaPlantada' culturaPlantada.id %}">Atualizar</a>
+    <form action="{% url 'produtorRural:deleteCulturaPlantada' culturaPlantada.id %}" method="POST">
+    {% csrf_token %}
+    {% if confirmation == 'no' %}
+        <input type="hidden" name="confirmation" value="yes">
+        <button class="btn btn-link btn-delete" type="submit">Confirma?</button>
+    {% else %}
+        <button class="btn btn-link btn-delete" type="submit">Deletar</button>
+    </form>
+    {% endif %}
+  </div>
+{% endblock content %}

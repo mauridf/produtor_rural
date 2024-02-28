@@ -181,7 +181,40 @@ class FazendaForm(forms.ModelForm):
                 )
             )
         return estado
+class CulturaPlantadaForm(forms.ModelForm):
+    class Meta:
+        model = models.FazendaCulturaPlantada
+        fields = (
+            'fazenda','tipoCultura',
+        )
 
+    #def clean(self):
+        #cleaned_data = self.cleaned_data
+        #fazenda = cleaned_data.get('fazenda')
+        #tipoCultura = cleaned_data.get('tipoCultura')
+
+        #if tipoCultura == '':
+        #    msg = ValidationError(
+        #        'É necessário selecionar um Tipo de Cultura',
+        #        code='invalid'
+        #    )
+        #    self.add_error('tipoCultura', msg)
+
+        #if fazenda == '':
+        #    msg = ValidationError(
+        #        'É necessário selecionar uma Fazenda',
+        #        code='invalid'
+        #    )
+        #    self.add_error('fazenda', msg)
+
+        #return super().clean
+
+class DashBoardForm(forms.ModelForm):
+    class Meta:
+        model = models.Fazenda
+        fields = (
+            'nomeFazenda','cidade','estado','areaTotal','areaAgricultavel','areaVegetacao','produtorRural'
+        )
 class RegisterForm(UserCreationForm):
     first_name = forms.CharField(
         required=True,

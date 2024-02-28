@@ -77,3 +77,23 @@ def fazenda(request, fazenda_id):
         'fazenda/fazenda.html',
         context
     )
+
+def dashboard(request):
+    dashboard = Fazenda.objects \
+        .filter(ativo=True) \
+        .order_by('-id')
+
+    paginator = Paginator(dashboard, 10)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        'page_obj': page_obj,
+        'site_title': 'Dashboard - '
+    }
+
+    return render(
+        request,
+        'dashboard/dashboard.html',
+        context
+    )

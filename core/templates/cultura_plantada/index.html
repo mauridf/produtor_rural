@@ -1,0 +1,45 @@
+{% extends 'global/base.html' %}
+
+{% block content %}
+    {% if page_obj %}
+        <div class="responsive-table">
+            <table class="contacts-table">
+                <caption class="table-caption ">
+                  Culturas Plantadas por Fazendas
+                </caption>
+
+                <thead>
+                  <tr class="table-row table-row-header">
+                    <th class="table-header">ID</th>
+                    <th class="table-header">Fazenda</th>
+                    <th class="table-header">Tipo de Cultura</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                    {% for culturaPlantada in page_obj %}
+                    <tr class="table-row">
+                        <td class="table-cel">
+                            <a class="table-link" href="{% url 'produtorRural:culturaPlantada' culturaPlantada.id %}">
+                            {{ culturaPlantada.id }}
+                            </a>
+                        </td>
+                        <td class="table-cel">
+                            {{ culturaPlantada.fazenda }}
+                        </td>
+                        <td class="table-cel">
+                            {{ culturaPlantada.tipoCultura }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="single_culturaPlantada">
+          <h1 class="single_culturaPlantada">
+            Nenhuma cultura plantada encontrada.
+          </h1>
+        </div>
+    {% endif %}
+{% endblock content %}
