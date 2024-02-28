@@ -3,12 +3,19 @@
 Sistema feito em PYTHON com DJANGO que consiste em um cadastro de produtor rural com os seguintes dados:
 
 1 - Nome do produtor
+
 2 - Nome da Fazenda
+
 3 - Cidade
+
 4 - Estado
+
 5 - Área total em hectares da fazenda
+
 6 - Área agricultável em hectares
-7 - Área de vegetação em hectares 
+
+7 - Área de vegetação em hectares
+
 8 - Culturas plantadas (Soja, Milho, Algodão, Café, Cana de Açucar, etc...)
 
 ## Requisitos do Negócio
@@ -26,10 +33,10 @@ Sistema feito em PYTHON com DJANGO que consiste em um cadastro de produtor rural
 
 ## Tecnologias Utilizadas
 
-- **BANCO DE DADOS: PostGre
-- **BACKEND: PYTHON
-- **FRAMEWORK: DJANGO
-- **FRONTEND: HTML e BOOTSTRAP
+- **BANCO DE DADOS**: _PostGre_
+- **BACKEND**: _PYTHON_
+- **FRAMEWORK**: _DJANGO_
+- **FRONTEND**: _HTML_ e _BOOTSTRAP_
 
 ## Para executar o sistema
 
